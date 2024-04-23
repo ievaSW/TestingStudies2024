@@ -29,16 +29,3 @@ test.describe('Should be able to fill letters', () => {
     
   });
 });
-//I'm Entry level QA Specialist and new in this field. During my QA Specialist courses at Baltic Institute of Technology I wrote tests and automated them with Playwright and Cypress (using Visual Studio Code), Postman testing frameworks.
-
-//Explore "Testing object" 
-//Discuss with team what needs to be tested
-//Test planing
-//Designing test cases
-//Run tests
-//Double check results!
-//Report bugs (step by step)*//
-//
-//Entry level QA Specialist.
-//Expected salary 900.
-//I'm ok to come to Kaunas office 2 times a week.

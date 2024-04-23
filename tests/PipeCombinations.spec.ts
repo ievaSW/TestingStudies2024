@@ -29,10 +29,8 @@ test.describe(`Pipes`,  () => {
         ];
 
 for (const combination of combinations) {
-    console.log(combination)
     test(`Should be able to turn on ${combination.toString()} pipes`, async ({page})=>{
         await page.goto('/testing/WaterFlowSimulation');
-
         for (const pipes of combination){
             await page.click(`#valve${pipes}`)
                 }
@@ -52,5 +50,4 @@ test.describe(`Timer`,  () => {
         }
         await expect(page.locator('#display')).not.toContainText('00:00:00.00')
     })
-    
 })

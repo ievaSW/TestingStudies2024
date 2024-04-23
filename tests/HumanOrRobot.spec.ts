@@ -46,5 +46,5 @@ test.describe('Human or robot', () => {
     await page.mouse.up();
     await page.click('#checker')
     await expect(page.locator('#detectionResult')).toContainText('Human detected');
-});
+  });
 });
