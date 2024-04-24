@@ -3,10 +3,9 @@ import { sleep } from '../testData';
 // test.describe('Ping Pong', () => {
 //   test('Should be able to show games end', async ({ page }) => {
 //     await page.goto('https://testingmarathon.com/testing/PingPong/');
-    
+
 //     await expect(page.locator('#scoreBoard')).toContainText('0');
-    
-    
+
 //     page.on('dialog', async (dialog) => {
 //       const message = dialog.message();
 //       console.log(message);
@@ -20,23 +19,22 @@ import { sleep } from '../testData';
 // });//veikia
 
 test.describe('Ping Pong', () => {
-    test('Should be able to get balls coordinates', async ({ page }) => {
-      await page.goto('https://testingmarathon.com/testing/PingPong/');
-      
-      await expect(page.locator('#scoreBoard')).toContainText('0');
-      
-      
-      await page.click('#startButton')
+  test('Should be able to get balls coordinates', async ({ page }) => {
+    await page.goto('https://testingmarathon.com/testing/PingPong/');
 
-      const A = await page.$eval('#ball', (ball)=>{
-        return ball.style.left;
-      })
-      const B = await page.$eval('#ball', (ball)=>{
-        return ball.style.left;
-      })
+    await expect(page.locator('#scoreBoard')).toContainText('0');
 
-      console.log('a ir b: ' + A +' '+B)
-      await sleep(4000)
-      await expect(A).not.toEqual(B)
+    await page.click('#startButton');
+
+    const A = await page.$eval('#ball', (ball) => {
+      return ball.style.left;
     });
+    const B = await page.$eval('#ball', (ball) => {
+      return ball.style.left;
+    });
+
+    console.log('a ir b: ' + A + ' ' + B);
+    await sleep(4000);
+    await expect(A).not.toEqual(B);
   });
+});

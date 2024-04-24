@@ -6,13 +6,12 @@ export class DeleteContact {
     const context = await request.newContext();
     return await context.post(
       `${APP_URL}/REST/contactsDelete/v1/createBatchDelete`,
-      { data: {contactIDs:[`${contactID}`]},
+      {
+        data: { contactIDs: [`${contactID}`] },
         failOnStatusCode: failOnStatusCode,
-      }
+      },
     );
   }
-
-  
 }
 
 //https://app.omnisend.com/REST/contactsDelete/v1/createBatchDelete

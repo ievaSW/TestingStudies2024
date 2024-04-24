@@ -8,10 +8,7 @@ export class SegmentsContact {
       `${APP_URL}/REST/contacts/v2/contacts?segmentID=${segmentID}&search=${search}`,
       {
         failOnStatusCode: failOnStatusCode,
-      }
+      },
     );
   }
-
-  
 }
-

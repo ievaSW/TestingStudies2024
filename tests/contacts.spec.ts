@@ -27,7 +27,7 @@ const contact = {
 test.describe('Contact spec', () => {
   test('Should be able to create a contact (POST)', async ({}) => {
     const response = await Contact.createContactByEmail(
-      contact.identifiers[0].id
+      contact.identifiers[0].id,
     );
     console.log(response);
     expect(response.status()).toEqual(200);
@@ -37,7 +37,7 @@ test.describe('Contact spec', () => {
   test('Should not be able to create a contact with invalid email', async ({}) => {
     const response = await Contact.createContactByEmail(
       randomInvalidEmail,
-      false
+      false,
     );
     expect(response.status()).toEqual(400);
   }); //veikia
@@ -69,7 +69,7 @@ test.describe('Contact spec', () => {
 
     await test.step('create contact', async () => {
       const response = await Contact.createContactByEmail(
-        contact.identifiers[0].id
+        contact.identifiers[0].id,
       );
       contact.contactID = (await response.json()).contactID;
       // console.log(contact.contactID);

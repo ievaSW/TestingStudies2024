@@ -9,26 +9,27 @@ export class Segments {
       failOnStatusCode: failOnStatusCode,
     });
   }
-  static async deleteSegmentbyID(segmentID:string, failOnStatusCode = true){
+  static async deleteSegmentbyID(segmentID: string, failOnStatusCode = true) {
     const context = await request.newContext();
     return await context.delete(
       `${APP_URL}/REST/segments/v1/segments/${segmentID}`,
       {
         failOnStatusCode: failOnStatusCode,
-      }
+      },
     );
-
   }
 
-  static async tryToDeleteSegment(segmentID: string){
-    const status =  (await this.deleteSegmentbyID(segmentID, false)).status();
-    console.log(status)
-    if(status !== 204){
-      for(let i=0; i<20; i++){
-        await sleep(500)//palaukimas kol segmentas susikurs
-        const status =  (await this.deleteSegmentbyID(segmentID, false)).status();
-        console.log(status)
-        if(status === 204){
+  static async tryToDeleteSegment(segmentID: string) {
+    const status = (await this.deleteSegmentbyID(segmentID, false)).status();
+    console.log(status);
+    if (status !== 204) {
+      for (let i = 0; i < 20; i++) {
+        await sleep(500); //palaukimas kol segmentas susikurs
+        const status = (
+          await this.deleteSegmentbyID(segmentID, false)
+        ).status();
+        console.log(status);
+        if (status === 204) {
           return status;
         }
       }
